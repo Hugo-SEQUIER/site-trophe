@@ -1,0 +1,105 @@
+.team-section {
+    width: 100%;
+    min-height: calc(80vh - 4vh - 52px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap : 0.5rem;
+    user-select: none; /* Désactive la sélection de texte */
+    -webkit-user-select: none; /* Désactive la sélection de texte sur les navigateurs WebKit */
+    -moz-user-select: none; /* Désactive la sélection de texte sur Firefox */
+    -ms-user-select: none; /* Désactive la sélection de texte sur Internet Explorer */
+}
+@media (max-width: 760px) {
+    .team-section {
+        flex-direction: column !important;
+    }
+}
+
+.team-section > div {
+    border-radius: .375rem;
+    text-align: justify;
+    padding: 0.5rem;
+}
+
+.team-section > div:first-child {
+    width: 30%;
+}
+
+.team-section > div:last-child {
+    width: 70%;
+}
+
+.team-section > img {
+    min-height: calc(80vh - 4vh - 52px) !important;
+    width: auto;
+    box-shadow: -1px 1px 6px 1px #4444444a;
+    border-radius: .375rem;
+}
+
+.team-sectionTeamCard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    gap: .5rem;
+}
+
+.team-teamCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.team-teamCard > img {
+    object-fit: cover; 
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.team-teamCard > div {
+    background-color: #444444bf;
+    color : #F9F6EE;
+    padding: .5rem;
+    box-sizing: border-box; 
+    text-align: center; 
+    grid-column: 1;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.team-teamCard h1 {
+    font-size: 1rem;
+}
+
+.team-teamCard h2 {
+    font-size: 0.8rem;
+}
+
+.team-teamCard svg:hover {
+    cursor: pointer;
+}
+
+.team-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none; /* Désactive la sélection de texte */
+    -webkit-user-select: none; /* Désactive la sélection de texte sur les navigateurs WebKit */
+    -moz-user-select: none; /* Désactive la sélection de texte sur Firefox */
+    -ms-user-select: none; /* Désactive la sélection de texte sur Internet Explorer */
+   padding-left: 0.5rem;
+   padding-right: 0.5rem;
+}
+
+.team-title > h1 {
+    margin-bottom: 0.5rem;
+}

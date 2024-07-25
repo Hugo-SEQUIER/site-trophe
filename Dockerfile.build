@@ -1,0 +1,39 @@
+# Utiliser une image de base Node.js
+FROM node:21.5.0-alpine
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier le package.json et le package-lock.json
+COPY package*.json ./
+
+# Installer les dépendances
+RUN npm install
+
+# Copier tout le reste du projet
+COPY . .
+
+# Construire le projet Next.js
+RUN npm run build
+
+# Configurer Git
+# Assurez-vous que les variables GIT_REPO, GIT_BRANCH, GIT_USERNAME et GIT_TOKEN soient définies
+ARG GIT_REPO
+ARG GIT_BRANCH
+ARG GIT_USERNAME
+ARG GIT_TOKEN
+ARG GIT_EMAIL
+
+# Ajouter les fichiers construits au dépôt git et les pousser
+RUN apk add --no-cache git openssh \
+    && git config --global user.name "$GIT_USERNAME" \
+    && git config --global user.email "$GIT_EMAIL" \
+    && git clone --branch $GIT_BRANCH https://$GIT_USERNAME:$GIT_TOKEN@$GIT_REPO /tmp/repo \
+    && rm -rf /tmp/repo/* \
+    && cp -r /app/build/* /tmp/repo/ \
+    && cd /tmp/repo \
+    && git add -A \
+    && git commit -m "Automated build commit" \
+    && git push origin $GIT_BRANCH
+
+# Vous pouvez ajouter ici des commandes pour copier le build vers un dépôt Git ou un stockage externe si nécessaire

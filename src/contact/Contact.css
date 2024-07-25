@@ -1,0 +1,104 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    margin-bottom: 1rem;
+}
+
+.Form > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: .375rem;
+    padding: 1.25rem;
+    box-shadow: -1px 1px 6px 1px #4444444a;
+}
+
+.Form > form > div {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    color: #444444;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 550px) {
+    .Form > form > div {
+        min-width: 100%;
+    }
+}
+
+
+.Form > form > button {
+    background-color: #F9F6EE;
+    border: 1px solid #444444;
+    border-radius: .375rem;
+    margin-top: auto;
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+    padding-left: .625rem;
+    padding-right: .625rem;
+    width: fit-content;
+    color: #444444 !important;
+}
+
+.Form > form > button:hover {
+    background-color: #444444;
+    border: 1px solid #F9F6EE;
+    color : #F9F6EE !important;
+    border-radius: .375rem;
+    cursor: pointer;
+}
+
+.input {
+    background-color: #F9F6EE;
+    border: 1px solid #444444;
+    border-radius: .375rem;
+    padding: 0.3rem;
+}
+
+.select {
+    background-color: #F9F6EE;
+    border: 1px solid #444444;
+    border-radius: .375rem;
+    padding: 0.3rem;
+}
+
+.message {
+    background-color: #F9F6EE;
+    border: 1px solid #444444;
+    border-radius: .375rem;
+    padding: 0.3rem;
+}
+
+.widget {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1; /* initial state */
+    z-index: 1000; /* Ensure it appears above other elements */
+  }
+  
+  .widget p {
+    margin: 0;
+  }
+  
+  .widget.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .hidden {
+    opacity: 0; /* Hidden state */
+  }

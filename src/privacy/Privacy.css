@@ -1,0 +1,10 @@
+.privacy-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.privacy-section > div {
+    width: 75%;
+}

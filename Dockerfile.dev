@@ -1,0 +1,23 @@
+# Utiliser une image de base Node.js spécifique (ajustez la version selon celle installée sur votre machine)
+FROM node:21.5.0-alpine
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier le package.json et le package-lock.json
+COPY package*.json ./
+
+# Installer les dépendances
+RUN npm install
+
+# Copier tout le reste du projet
+COPY . .
+
+# Construire le projet Next.js
+RUN npm run build
+
+# Exposer le port sur lequel l'application Next.js fonctionnera
+EXPOSE 3000
+
+# Commande pour démarrer l'application en mode développement
+CMD ["npm", "start"]
